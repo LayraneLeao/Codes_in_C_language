@@ -1,3 +1,6 @@
+/* Foi criado um sistema de gerenciamento de um aeroporto, com as seguintes opções : registro de aviões, registro de assentos por avião, 
+reserva do passageiro, consulta por avião e consulta por passageiro. */
+
 #include <locale.h>
 #include <stdio.h>
 #include <string.h>
