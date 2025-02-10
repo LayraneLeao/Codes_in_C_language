@@ -1,23 +1,30 @@
-/* ATIVIDADE:
-  Regra de negócio 1: Desconto para clientes fiéis.
+/* Regra de negócio 1: Desconto para clientes fiéis.
   Enunciado: Clientes que fizeram mais de 5 compras nos últimos 6 meses têm direito a um desconto de 10% no valor total da próxima compra.
+
 
   Regra de negócio 2: Limite de crédito para novos clientes.
   Enunciado: Novos clientes têm um limite de crédito de R$ 500, ou seja, não podem fazer compras com valor total superior a esse limite até que completem 3 meses como clientes ativos.
 
+
   Tarefa: Criar um algoritmo em linguagem C que use essas duas regras de negócio para calcular o valor final de uma compra de um cliente, aplicando ou não o desconto de cliente fiel e verificando se um novo cliente ultrapassou o limite de crédito.
 
-  CRIADORA: Layrane Dantas Pinheiro Leão
+  Criadora: Layrane Dantas Pinheiro Leão
   */
 
 #include <stdio.h>
+#include <locale.h> // Biblioteca que me permite mudar a localização do meu código para permitir o uso de acentos
+
 
 int main (){
+  setlocale(LC_ALL, "portuguese"); // Define localização para português, permitindo o uso das acentuações
+
+  // Declaração das variáveis
   char nome[50];
   int compras, opcao;
-  double totalCompras; // Variavél que armazena o valor total da compra 
+  double totalCompras; // Variável que armazena o valor total da compra 
   double desconto, precoFinal;
 
+  // Início do programa
   printf ("Digite seu nome: ");
   scanf ("%s", nome);
 
@@ -29,7 +36,7 @@ int main (){
     }
   } while (opcao != 1 && opcao != 2); // Se a pessoa digitou uma opção inválida, estou permitindo a ele que volte e digite a opção correta
 
-  
+
   switch (opcao){
 
     case 1: {
@@ -45,13 +52,13 @@ int main (){
       }
       break;
     }
-    
+
     case 2: {
       // Se a pessoa digitar 2 é porque ele não é um novo cliente, logo ele pode ter feito mais de 5 compras nos últimos 6 meses
       // Então entra pra regra 1
       printf ("Quantas compras você fez nos ultimos 6 meses? ");
       scanf ("%d", &compras);
-      
+
       printf ("Qual valor da sua compra? ");
       scanf ("%lf", &totalCompras);
 
@@ -64,8 +71,8 @@ int main (){
       }
       break;
     }
-    
+
   }
- 
+
   return 0;
 }
